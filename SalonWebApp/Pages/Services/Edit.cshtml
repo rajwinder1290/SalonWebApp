@@ -1,0 +1,44 @@
+﻿@page
+@model SalonWebApp.Pages.Services.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <h1 class="text-center">Add New Salon Service</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/images/operation.png" class="img-fluid" />
+        </div>
+        <div class="col-md-8">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Service.Id" />
+                <div class="form-group">
+                    <label asp-for="Service.ServiceName" class="control-label"></label>
+                    <input asp-for="Service.ServiceName" class="form-control" />
+                    <span asp-validation-for="Service.ServiceName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Service.Description" class="control-label"></label>
+                    <input asp-for="Service.Description" class="form-control" />
+                    <span asp-validation-for="Service.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Service.CategoryID" class="control-label"></label>
+                    <select asp-for="Service.CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
+                    <span asp-validation-for="Service.CategoryID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save Details" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

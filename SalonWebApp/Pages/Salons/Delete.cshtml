@@ -1,0 +1,45 @@
+﻿@page
+@model SalonWebApp.Pages.Salons.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+    <h1 class="text-center">Delete Salon Details</h1>
+
+    <div>
+        <h4>Are You Sure To Remove Delete This Salon Details?</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Salon.SalonName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salon.SalonName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Salon.Address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salon.Address)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Salon.Phone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salon.Phone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Salon.Region.RegionName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salon.Region.RegionName)
+            </dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="Salon.Id" />
+            <input type="submit" value="Delete Details" class="btn btn-danger" />
+        </form>
+    </div>
+</div>
